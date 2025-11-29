@@ -54,6 +54,9 @@ namespace AndroidSideloader
         public static string currremotesimple = "";
 
 #endif
+        private bool _trailerPlayerInitialized;          // player.html created and loaded
+        private bool _trailerHtmlLoaded;                 // initial navigation completed
+        private static readonly Dictionary<string, string> _videoIdCache = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase); // per game cache
 
         private bool isLoading = true;
         public static bool isOffline = false;
@@ -367,6 +370,16 @@ namespace AndroidSideloader
                 {
                     Directory.Delete(webViewDirectoryPath, true);
                 }
+
+                // Pre-initialize trailer player if trailers are enabled
+                try
+                {
+                    if (settings.TrailersOn)
+                    {
+                        await EnsureTrailerEnvironmentAsync();
+                    }
+                }
+                catch { /* swallow – prewarm should never crash startup */ }
             }
 
             remotesList.Items.Clear();
@@ -3719,40 +3732,168 @@ Please visit our Telegram (https://t.me/VRPirates) or Discord (https://discord.g
             }
         }
 
-        static string ExtractVideoUrl(string html)
+        static string ExtractVideoId(string html)
         {
-            Match match = Regex.Match(html, @"url""\:\""/watch\?v\=(.*?(?=""))");
-            if (!match.Success)
-            {
-                return String.Empty;
-            }
+            // We want the first strict 11-char YouTube video ID after /watch?v=
+            var m = Regex.Match(html, @"\/watch\?v=([A-Za-z0-9_\-]{11})");
+            return m.Success ? m.Groups[1].Value : string.Empty;
+        }
 
-            string url = match.Groups[1].Value;
-            return $"https://www.youtube.com/embed/{url}?autoplay=1&mute=1&enablejsapi=1&modestbranding=1";
+        private void InitializeTrailerPlayer()
+        {
+            if (_trailerPlayerInitialized) return;
+            string webroot = Path.Combine(Environment.CurrentDirectory, "webroot");
+            Directory.CreateDirectory(webroot);
+            string playerHtml = Path.Combine(webroot, "player.html");
+
+            // Lightweight HTML with YouTube IFrame API and WebView2 message bridge
+            var html = @"<!doctype html>
+<html>
+<head>
+<meta charset=""utf-8"">
+<meta name=""viewport"" content=""width=device-width,initial-scale=1""/>
+<title>Trailer Player</title>
+<style>
+html,body { margin:0; background:#000; height:100%; overflow:hidden; }
+#player { width:100vw; height:100vh; }
+</style>
+<script src=""https://www.youtube.com/iframe_api""></script>
+<script>
+let player;
+let pendingId = null;
+// Youtube trailer player
+function onYouTubeIframeAPIReady() {
+    // Initialize without video
+    player = new YT.Player('player', {
+        playerVars: {
+            autoplay: 0,         // prevent autoplay at startup
+            mute: 1,             // keep muted so subsequent loads can play instantly if desired
+            playsinline: 1,
+            rel: 0,
+            modestbranding: 1
+        },
+        events: {
+            'onReady': () => {
+                // Do nothing by default. Only play after we receive a video id message.
+                if (pendingId) {
+                    // If we received a message before ready, load now.
+                    player.loadVideoById(pendingId);
+                    pendingId = null;
+                }
+            }
+        }
+    });
+}
+// WebView2 message hook: app posts the 11-char video id.
+(function(){
+    if (window.chrome && window.chrome.webview) {
+        window.chrome.webview.addEventListener('message', e => {
+            const id = (e && e.data) ? String(e.data).trim() : '';
+            if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+            if (player && player.loadVideoById) {
+                player.loadVideoById(id);
+            } else {
+                pendingId = id;
+            }
+        });
+    }
+})();
+</script>
+</head>
+<body>
+<div id=""player""></div>
+</body>
+</html>";
+            File.WriteAllText(playerHtml, html, Encoding.UTF8);
+            _trailerPlayerInitialized = true;
+        }
+
+        // Ensure environment + initial navigation
+        private async Task EnsureTrailerEnvironmentAsync()
+        {
+            if (webView21.CoreWebView2 == null)
+            {
+                await CreateEnvironment();
+            }
+            InitializeTrailerPlayer();
+            if (!_trailerHtmlLoaded)
+            {
+                webView21.CoreWebView2.NavigationCompleted += (s, e) =>
+                {
+                    _trailerHtmlLoaded = true;
+                };
+                webView21.CoreWebView2.Navigate("https://app.local/player.html");
+            }
+        }
+
+        private async Task ShowVideoAsync(string videoId)
+        {
+            if (string.IsNullOrEmpty(videoId)) return;
+            await EnsureTrailerEnvironmentAsync();
+
+            // If first load still in progress, small retry loop
+            int tries = 0;
+            while (!_trailerHtmlLoaded && tries < 50)
+            {
+                await Task.Delay(50);
+                tries++;
+            }
+            // Post the raw ID; page builds final URL
+            webView21.CoreWebView2.PostWebMessageAsString(videoId);
+        }
+
+        private async Task<string> ResolveVideoIdAsync(string gameName)
+        {
+            if (string.IsNullOrWhiteSpace(gameName)) return string.Empty;
+
+            if (_videoIdCache.TryGetValue(gameName, out var cached))
+                return cached;
+
+            // Lightweight search
+            try
+            {
+                string query = WebUtility.UrlEncode(gameName + " VR trailer");
+                string searchUrl = $"https://www.youtube.com/results?search_query={query}";
+                using (var http = new HttpClient())
+                {
+                    http.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/119.0");
+                    var html = await http.GetStringAsync(searchUrl);
+                    var vid = ExtractVideoId(html);
+                    if (!string.IsNullOrEmpty(vid))
+                    {
+                        _videoIdCache[gameName] = vid;
+                        return vid;
+                    }
+                }
+            }
+            catch
+            {
+                // swallow – return empty
+            }
+            return string.Empty;
         }
 
         private async Task CreateEnvironment()
         {
-            string appDataLocation = Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), "RSL");
-            var webView2Environment = await CoreWebView2Environment.CreateAsync(userDataFolder: appDataLocation);
-            await webView21.EnsureCoreWebView2Async(webView2Environment);
-        }
+            // Fast path: already initialized
+            if (webView21.CoreWebView2 != null) return;
 
-        private async Task WebView_CoreWebView2ReadyAsync(string videoUrl)
-        {
-            try
-            {
-                // Load the video URL in the web browser control
-                webView21.CoreWebView2.Navigate(videoUrl);
-                webView21.CoreWebView2.ContainsFullScreenElementChanged += (obj, args) =>
-                {
-                    this.FullScreen = webView21.CoreWebView2.ContainsFullScreenElement;
-                };
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            // Create environment
+            var userDataFolder = Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), "RSL");
+            var env = await CoreWebView2Environment.CreateAsync(userDataFolder: userDataFolder);
+
+            await webView21.EnsureCoreWebView2Async(env);
+
+            // Map local folder to a trusted origin (https://app.local)
+            var webroot = Path.Combine(Environment.CurrentDirectory, "webroot");
+            Directory.CreateDirectory(webroot);
+            webView21.CoreWebView2.SetVirtualHostNameToFolderMapping(
+                "app.local", webroot, CoreWebView2HostResourceAccessKind.Allow);
+
+            // Minimal settings required for the player page
+            var s = webView21.CoreWebView2.Settings;
+            s.IsScriptEnabled = true;       // allow IFrame API
+            s.IsWebMessageEnabled = true;   // allow PostWebMessageAsString from host
         }
 
         public async void gamesListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -3802,55 +3943,25 @@ Please visit our Telegram (https://t.me/VRPirates) or Discord (https://discord.g
             }
             else
             {
+                // Fast trailer loading path
                 webView21.Enabled = true;
-                if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "runtimes")))
-                {
-                    WebClient client = new WebClient();
-                    ServicePointManager.Expect100Continue = true;
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                    try
-                    {
-                        client.DownloadFile("https://vrpirates.wiki/downloads/runtimes.7z", "runtimes.7z");
-                        Utilities.Zip.ExtractFile(Path.Combine(Environment.CurrentDirectory, "runtimes.7z"), Environment.CurrentDirectory);
-                        File.Delete("runtimes.7z");
-                    }
-                    catch (Exception ex)
-                    {
-                        _ = FlexibleMessageBox.Show(Program.form, $"You are unable to access the wiki page with the Exception: {ex.Message}\n");
-                        _ = FlexibleMessageBox.Show(Program.form, "Required files for the Trailers were unable to be downloaded, please use Thumbnails instead");
-                        enviromentCreated = true;
-                        webView21.Hide();
-                    }
-                }
-                if (!enviromentCreated)
-                {
-                    await CreateEnvironment();
-                    enviromentCreated = true;
-                }
                 webView21.Show();
 
                 try
                 {
-                    string query = $"{CurrentGameName} VR trailer"; // Create the search query by appending " VR trailer" to the current game name
-                    string encodedQuery = WebUtility.UrlEncode(query);
-                    string url = $"https://www.youtube.com/results?search_query={encodedQuery}";
-
-                    string videoUrl;
-                    using (var client = new WebClient()) // Create a WebClient to download the search results page HTML
+                    var videoId = await ResolveVideoIdAsync(CurrentGameName);
+                    if (string.IsNullOrEmpty(videoId))
                     {
-                        videoUrl = ExtractVideoUrl(client.DownloadString(url)); // Download the HTML and extract the first video URL
+                        changeTitle("No trailer found");
                     }
-                    if (videoUrl == "")
+                    else
                     {
-                        MessageBox.Show("No video URL found in search results.");
-                        return;
+                        await ShowVideoAsync(videoId);
                     }
-
-                    await WebView_CoreWebView2ReadyAsync(videoUrl);
                 }
                 catch (Exception ex)
                 {
-                    Program.form.changeTitle($"Error loading Trailer: {ex.Message}");
+                    changeTitle($"Error loading trailer: {ex.Message}");
                     Logger.Log("Error Loading Trailer");
                     Logger.Log(ex.Message);
                 }
