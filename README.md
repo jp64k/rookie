@@ -1,17 +1,15 @@
-# AndroidSideloader
-
 ## BETA 2.35 - JP's extended version (Fork)
 
-**Note: These changes are currently in development and may not be merged into Rookie's production version. This release is simply a compiled version with all of my changes and improvements of the source presented at:** [github.com/jp64k/rookie/tree/beta/RSL-2.35-yt](https://github.com/jp64k/rookie/tree/beta/RSL-2.35-yt)
+**Note: These changes are currently in development and may not be merged into Rookie's production version. You'll find a download below, which is simply a compiled version with [all of my changes and improvements of the source](https://github.com/jp64k/rookie/tree/beta/RSL-2.35-yt).**
 
-## Release Summary
-This release brings major performance improvements, a modernized UI and enhanced functionality to Rookie. Highlights include a 20x faster game list initialization, instant list filtering, YouTube trailer integration, a new gallery mode, and significant startup optimizations. The application is now more responsive, visually appealing, and efficient.
+## Summary
+Major performance improvements, a modernized UI and enhanced functionality to Rookie. Highlights include a 20x faster game list initialization, instant list filtering, updated YouTube trailer integration, a new gallery mode and significant startup optimizations. The application is now more responsive, visually appealing, fast and efficient.
 
 **Download: https://github.com/jp64k/rookie/releases/tag/release-1**
 
 <img width="1392" height="905" alt="AndroidSideloader_xkqK6v3oCG" src="https://github.com/user-attachments/assets/c0e619de-c0f7-4a35-946e-0a3485fea605" />
 
-# Forked data
+# AndroidSideloader
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/VRPirates/rookie)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/VRPirates/rookie)
