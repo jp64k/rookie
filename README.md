@@ -1,20 +1,13 @@
-## BETA 2.35 - JP's extended version (Fork)
-
 **Note: These changes are currently in development and may not be merged into Rookie's production version. You'll find a download below, which is simply a compiled version with [all of my changes and improvements of the source](https://github.com/jp64k/rookie/tree/beta/RSL-2.35-yt).**
 
-## Summary
-Major performance improvements, a modernized UI and enhanced functionality to Rookie. Highlights include a 20x faster game list initialization, instant list filtering, updated YouTube trailer integration, a new gallery mode and significant startup optimizations. The application is now more responsive, visually appealing, fast and efficient.
+# RSL 3.0 BETA ⸺ JP's (extended) version
+A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations with 95% faster game list initialization, instant filtering, a new gallery view, modernized UI components, integrated uninstall buttons, and numerous quality-of-life improvements throughout.
 
-**Download: https://github.com/jp64k/rookie/releases/tag/release-1**
+**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0](https://github.com/jp64k/rookie/releases/tag/release-3.0)**
 
-<img width="1392" height="905" alt="AndroidSideloader_xkqK6v3oCG" src="https://github.com/user-attachments/assets/c0e619de-c0f7-4a35-946e-0a3485fea605" />
+<img width="1256" height="753" alt="AndroidSideloader_iOoxoeh5sx" src="https://github.com/user-attachments/assets/5be83c7b-3f16-484f-8501-a8bce9d2fc3d" />
 
 # AndroidSideloader
-
-![GitHub last commit](https://img.shields.io/github/last-commit/VRPirates/rookie)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/VRPirates/rookie)
-[![Downloads](https://img.shields.io/github/downloads/VRPirates/rookie/total.svg)](https://github.com/VRPirates/rookie/releases)
-![Issues](https://img.shields.io/github/issues/VRPirates/rookie)
 
 ## Disclaimer
 This application might get flagged as malware by some antivirus software; however, both the Sideloader and the Sideloader Launcher are open source.
