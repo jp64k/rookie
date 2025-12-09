@@ -3,7 +3,7 @@
 # RSL 3.0 BETA ⸺ JP's version (Fixed)
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, much faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons and numerous quality-of-life improvements throughout.
 
-**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed2](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed2)**
+**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed3](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed3)**
 
 <img width="1256" height="753" alt="AndroidSideloader_iOoxoeh5sx" src="https://github.com/user-attachments/assets/5be83c7b-3f16-484f-8501-a8bce9d2fc3d" />
 
