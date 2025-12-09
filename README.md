@@ -15,10 +15,9 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 - Optimized LRU image caching ensures smooth performance even on low-end hardware  
 
 ## Performance Improvements
-- Improved startup performance through overhaul of initialization logic, removal of splash screen, parallelized asynchronous loading, batched version retrieval, optimized metadata extraction and much faster game list initialization  
+- Improved startup performance through overhaul of initialization logic, removal of splash screen, parallelized asynchronous operations, batched version retrieval, optimized metadata extraction, faster directory deletion and much faster game list initialization  
 - Instant list filtering via caching and streamlined filter logic (INSTALLED / UPDATE AVAILABLE / NEWER THAN LIST)  
-- Improved search responsiveness with indexed lookups and reduced debounce timers
-- Improved metadata extraction using faster directory deletion, parallel operations and atomic game list updates  
+- Improved search responsiveness with indexed lookups and reduced debounce timers  
 - Reduced application size by removing now unused assets 
 
 ## UI & UX Redesign
