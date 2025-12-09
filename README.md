@@ -45,7 +45,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 - Added a retry mechanism for RCLONE initialization  
 - Fixed update prompt when the local version exceeds the server version
 
-**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed2](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed2)**
+**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed3](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed3)**
 
 ---
 
