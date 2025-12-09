@@ -1,4 +1,4 @@
-**Note: These changes are currently in development and may not be merged into Rookie's production version. You'll find a download below, which is simply a compiled version with [all of my changes and improvements of the source](https://github.com/jp64k/rookie/tree/beta/RSL-2.35-yt).**
+**Note: These changes are currently in development and may not be merged into Rookie's production version. You'll find a download below, which is simply a compiled version with [all of my changes and improvements of the source](https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:beta/RSL-2.35-yt).**
 
 # RSL 3.0 BETA ⸺ JP's version (Fixed)
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, much faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons and numerous quality-of-life improvements throughout.
