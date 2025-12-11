@@ -1,9 +1,9 @@
-**Note: These changes are currently in development and may not be merged into Rookie's production version. You'll find a download below, which is simply a compiled version with [all of my changes and improvements of the source](https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:beta/RSL-2.35-yt).**
+**Note: These changes are currently in development and may not be merged into Rookie's production version. You'll find a download below, which is simply a compiled version with all of my changes and improvements of the source [here](https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:beta/RSL-2.35-yt) and [there](https://github.com/VRPirates/rookie/compare/beta/RSL-3.0...jp64k:rookie:RSL-3.0).**
 
-# RSL 3.0 BETA ⸺ JP's version (Fixed)
+# RSL 3.0 BETA ⸺ JP's version (Fixed V5)
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, much faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons and numerous quality-of-life improvements throughout.
 
-**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed4](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed4)**
+**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed5](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed5)**
 
 <img width="1256" height="753" alt="AndroidSideloader_iOoxoeh5sx" src="https://github.com/user-attachments/assets/5be83c7b-3f16-484f-8501-a8bce9d2fc3d" />
 
@@ -44,7 +44,12 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 - Added a retry mechanism for RCLONE initialization  
 - Fixed update prompt when the local version exceeds the server version
 
-**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed4](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed4)**
+## Reworked Wireless ADB
+- **Manual** IP address field now automatically prefills the first 3 octets by getting the local IPv4 of the system.
+- **Automatic** no longer requires USB connection to establish a connection, instead now performs a network scan to automatically find the device and connects to it. Multi-device selection support included (untested - I only have a single device)
+- Note: Wireless ADB still requires a one-time USB setup for the ADB 'tcpip 5555' command (I wasn't able to ever establish a connection without TCP/IP mode in Rookie, neither here nor in 2.34)
+  
+**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed5](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed5)**
 
 ---
 
