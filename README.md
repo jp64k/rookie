@@ -5,7 +5,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 
 **Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6)**
 
-![ezgif-85e9739b13815afa](https://github.com/user-attachments/assets/c169fbf3-8990-4426-be1d-7331d19fe185)
+![ezgif-5636440132a5fd37](https://github.com/user-attachments/assets/7580c01e-8499-4eb5-abad-87ac04e0a7b4)
 
 ## Game Gallery
 - Added a custom high-performance Gallery View with smooth animations and dynamic scaling  
