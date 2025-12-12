@@ -23,7 +23,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 
 ## UI & UX Redesign
 - Complete visual overhaul with new color scheme and refined layout for improved consistency and modernity  
-- Redesigned left-side navigation bar with smooth animations and clearer device information, status and option presentation  
+- Redesigned left-side navigation bar with smooth animations and clearer device information and option presentation  
 - Relocated and refined numerous options (mount device, select device, share app, uninstall app, pull-to-desktop, filters, etc.) for a more logical workflow  
 - Fine-tuned styling, sizing, positioning and color consistency across all UI components with enhanced visual polish
 - Implemented modern ToggleSwitch component with animations and updated Quest and Rookie option menus to use the new toggles  
@@ -33,7 +33,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 - Added uninstall buttons directly in List and Gallery views for quicker app management  
 - Updated the app icon based on the VRP server icon and enabled it in the window title bar  
 
-Together with the refined sorting/installation status filters and uninstall functions, these changes allow Rookie to function not only as a sideloader, but also as an efficient device app browser and manager.
+The combination of game gallery, refined filters and integrated uninstall buttons allow Rookie to function not only as a Sideloader, but also as an efficient device app browser and manager.
 
 ## Wireless ADB Enhancements
 - Fully reworked Wireless ADB options to simplify setup and day-to-day use  
@@ -44,7 +44,7 @@ Together with the refined sorting/installation status filters and uninstall func
   - Instead now performs a network scan to automatically find the device and connects to it
   - Includes multi-device selection support (behavior designed for multiple devices, though only tested with a single device)  
 - Updated the ADB button label and messages to better reflect the new logic and to provide clearer guidance during connection attempts
-- Increased speed of disabling Wireless ADB, reducing the time it takes to turn the feature off 
+- Increased speed of 'Disable Wireless ADB' feature, reducing the time it takes to turn Wireless ADB off
 - Note: Wireless ADB still requires a one-time USB setup to run the `adb tcpip 5555` command. In testing, connections could not be established from Rookie (both in this build and in earlier 2.34) without enabling TCP/IP mode on the device
 
 ## Sideloading & Install Flow
@@ -61,13 +61,13 @@ Together with the refined sorting/installation status filters and uninstall func
 ## Stability & Bug Fixes
 - Fixed several startup issues that could cause false connection error messages  
 - Resolved zombie ADB instances preventing proper startup and reliable connections
-- Fixed initialization behavior when no device is connected so the app continues in a predictable "download-only mode" state without a headset attached
-- Refined "download-only mode" logic to preserve downloaded files until installation has completed successfully
+- Fixed initialization behavior when no device is connected so the app continues in a predictable "download-only" state without a headset attached
+- Refined "download-only" state logic to preserve downloaded files until installation has completed successfully
 - Added automatic device detection to trigger a full UI/data refresh once a device is connected
 - Fixed active filter resetting after uninstalling a game so filters remain intact while you manage your library
 - Fixed YouTube trailer playback issues by using a local `player.html` with the YouTube IFrame API and a WebView2 message bridge, plus per-game video ID caching and WebView2 optimizations for faster and more reliable trailer loading  
 - Added `WebView2.dll` validation to ensure required runtime dependencies are present
-- Added a retry mechanism for RCLONE initialization to improve robustness of cloud-related operations
+- Added a retry mechanism for RCLONE initialization to improve robustness and resolve startup issues
 - Synced sideloading button text to correctly match the current sideloading status to avoid confusion  
 - Fixed update prompt when the local version exceeds the server version to avoid misleading downgrade suggestions
   
