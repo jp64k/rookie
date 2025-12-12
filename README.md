@@ -5,7 +5,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 
 **Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6)**
 
-![ezgif-5636440132a5fd37](https://github.com/user-attachments/assets/7580c01e-8499-4eb5-abad-87ac04e0a7b4)
+<img width="1256" height="753" alt="AndroidSideloader_nuwBVQCxW8" src="https://github.com/user-attachments/assets/7f81a5e6-95db-4b3b-902c-9fb77af0f23e" />
 
 ## Game Gallery
 - Added a custom high-performance Gallery View with smooth animations and dynamic scaling  
@@ -70,11 +70,13 @@ The combination of game gallery, refined filters and integrated uninstall button
 - Added a retry mechanism for RCLONE initialization to improve robustness and resolve startup issues
 - Synced sideloading button text to correctly match the current sideloading status to avoid confusion  
 - Fixed update prompt when the local version exceeds the server version to avoid misleading downgrade suggestions
+
+## Preview
+![ezgif-5636440132a5fd37](https://github.com/user-attachments/assets/7580c01e-8499-4eb5-abad-87ac04e0a7b4)
   
 **Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6)**
 
 ---
-
 
 # Forked Info: AndroidSideloader
 
