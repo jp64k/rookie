@@ -53,21 +53,18 @@ Together with the refined sorting/installation status filters and uninstall func
 - Improved messages and prompts during and after sideloading to make actions, errors and results easier to understand  
 - Added a dialog asking whether to delete game files after installation when enabling sideloading from the left navigation toggle  
 
-## Device Handling & Connectivity
-- Fixed several startup issues that could cause false connection error messages  
-- Resolved zombie ADB instances preventing proper startup and reliable connections
-- Fixed initialization behavior when no device is connected so the app continues in a predictable "download-only mode" state without a headset attached
-- Refined "download-only mode" logic to preserve downloaded files until installation has completed successfully
-- Added automatic device detection to trigger a full UI/data refresh once a device is connected
-
 ## Local Blacklist
 - Added local blacklist support allowing users to permanently suppress donation prompts for specific apps  
 - Blacklisted apps are stored in a local `blacklist.json` and merged locally with the server blacklist  
 - This eliminates unwanted prompts immediately without waiting for server-side blacklist updates  
 
 ## Stability & Bug Fixes
-- Fixed active filter resetting after uninstalling a game so filters remain intact while you manage your library 
-- Fixed several issues around initialization when no device is connected, reducing edge-case crashes and inconsistent states  
+- Fixed several startup issues that could cause false connection error messages  
+- Resolved zombie ADB instances preventing proper startup and reliable connections
+- Fixed initialization behavior when no device is connected so the app continues in a predictable "download-only mode" state without a headset attached
+- Refined "download-only mode" logic to preserve downloaded files until installation has completed successfully
+- Added automatic device detection to trigger a full UI/data refresh once a device is connected
+- Fixed active filter resetting after uninstalling a game so filters remain intact while you manage your library
 - Fixed YouTube trailer playback issues by using a local `player.html` with the YouTube IFrame API and a WebView2 message bridge, plus per-game video ID caching and WebView2 optimizations for faster and more reliable trailer loading  
 - Added `WebView2.dll` validation to ensure required runtime dependencies are present
 - Added a retry mechanism for RCLONE initialization to improve robustness of cloud-related operations
