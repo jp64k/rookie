@@ -33,7 +33,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 - Added uninstall buttons directly in List and Gallery views for quicker app management  
 - Updated the app icon based on the VRP server icon and enabled it in the window title bar  
 
-The combination of game gallery, refined filters and integrated uninstall buttons allow Rookie to function not only as a Sideloader, but also as an efficient device app browser and manager.
+The combination of game gallery, refined filters and integrated uninstall buttons allows Rookie to function not only as a Sideloader, but also as an efficient device app browser and manager.
 
 ## Wireless ADB Enhancements
 - Fully reworked Wireless ADB options to simplify setup and day-to-day use  
