@@ -54,11 +54,11 @@ Together with the refined sorting/installation status filters and uninstall func
 - Added a dialog asking whether to delete game files after installation when enabling sideloading from the left navigation toggle  
 
 ## Device Handling & Connectivity
-- Fixed initialization behavior when no device is connected so the app starts in a predictable, stable state even without a headset attached
-- Refined "download-only" logic to preserve downloaded files until installation has completed successfully
-- Added automatic device detection to trigger a full UI/data refresh when a device is connected, disconnected or changes state  
 - Fixed several startup issues that could cause false connection error messages  
-- Resolved zombie ADB instances preventing proper startup and reliable connections  
+- Resolved zombie ADB instances preventing proper startup and reliable connections
+- Fixed initialization behavior when no device is connected so the app continues in a predictable "download-only mode" state without a headset attached
+- Refined "download-only mode" logic to preserve downloaded files until installation has completed successfully
+- Added automatic device detection to trigger a full UI/data refresh once a device is connected
 
 ## Local Blacklist
 - Added local blacklist support allowing users to permanently suppress donation prompts for specific apps  
