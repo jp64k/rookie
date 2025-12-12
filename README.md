@@ -36,7 +36,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 The combination of game gallery, refined filters and integrated uninstall buttons allows Rookie to function not only as a Sideloader, but also as an efficient device app browser and manager.
 
 ## Wireless ADB Enhancements
-- Fully reworked Wireless ADB options to simplify setup and day-to-day use  
+- Reworked Wireless ADB options to simplify setup and day-to-day use  
 - **Manual mode:** 
   - The IP address field now automatically prefills the first three octets by using the system's local IPv4, reducing typing and input errors  
 - **Automatic mode:**  
