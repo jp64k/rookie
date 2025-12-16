@@ -1,9 +1,10 @@
-**Note: These changes are currently in development and may or may not be merged into Rookie's production version. You'll find a download below, which is simply a compiled version with all of my changes and improvements of the source [here](https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:beta/RSL-2.35-yt) and [there](https://github.com/VRPirates/rookie/compare/beta/RSL-3.0...jp64k:rookie:RSL-3.0).**
+**Note: These changes are currently in development and may or may not be merged into Rookie's production version. You'll find a link below, which is simply a compiled version with [all of my changes and improvements of the source](https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:RSL-3.0-2).**
 
-# JP's RSL 3.0 BETA (Fixed V6)
+# NEWS: RSL 3.0 BETA PRE-RELEASED
+**Good news! The changes have been merged and RSL 3.0 BETA has been pre-released. Available here: https://github.com/VRPirates/rookie/releases/tag/v3.0-beta2**
+
+# RSL 3.0 BETA
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, much faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons, real-time installation progress updates and numerous quality-of-life improvements throughout.
-
-**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6)**
 
 <img width="1256" height="753" alt="AndroidSideloader_nuwBVQCxW8" src="https://github.com/user-attachments/assets/7f81a5e6-95db-4b3b-902c-9fb77af0f23e" />
 
@@ -70,11 +71,12 @@ The combination of game gallery, refined filters and integrated uninstall button
 - Added a retry mechanism for RCLONE initialization to improve robustness and resolve startup issues
 - Synced sideloading button text to correctly match the current sideloading status to avoid confusion  
 - Fixed update prompt when the local version exceeds the server version to avoid misleading downgrade suggestions
-
+- Implemented automatic Cloudflare DNS fallback to resolve connectivity issues
+- Fixed rare cases where pop-up dialogs would open behind the main window 
+- Fixed corrupted user.config files preventing startup
+  
 ## Preview
 ![ezgif-5636440132a5fd37](https://github.com/user-attachments/assets/7580c01e-8499-4eb5-abad-87ac04e0a7b4)
-  
-**Details & Download: [https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6](https://github.com/jp64k/rookie/releases/tag/release-3.0-fixed6)**
 
 ---
 
