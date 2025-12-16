@@ -2,7 +2,9 @@
 
 # NEWS: RSL 3.0 BETA PRE-RELEASED
 
-**Good news! The changes have been merged and RSL 3.0 BETA has been pre-released. Download available here: https://github.com/VRPirates/rookie/releases/tag/v3.0-beta2**
+**Good news! The changes have been merged and RSL 3.0 BETA has been pre-released.**
+
+**Download available here: https://github.com/VRPirates/rookie/releases**
 
 # RSL 3.0 BETA
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, much faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons, real-time installation progress updates and numerous quality-of-life improvements throughout.
