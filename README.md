@@ -91,7 +91,7 @@ The combination of refined filters and integrated uninstall buttons allows Rooki
 - Fixed corrupted user.config files preventing startup
 
 ## Preview
-![3](https://github.com/user-attachments/assets/1ac57569-f234-4262-a064-4d6ee5508966)
+![3](https://github.com/user-attachments/assets/da511efa-52ba-4956-850d-648166b4409f)
 
 ## Release
 **Head over to **https://github.com/VRPirates/rookie/releases** for release.**
