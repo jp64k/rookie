@@ -5,9 +5,9 @@
 # RSL 3.0 BETA
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons, real-time installation progress updates and numerous quality-of-life improvements throughout.
 
-![1](https://github.com/user-attachments/assets/e17b1b6a-0ca1-4eb4-958c-62368c0af38c)
+![1](https://github.com/user-attachments/assets/45e6b564-30a5-4025-8fca-27861a26e626)
 
-![2](https://github.com/user-attachments/assets/fe7638c8-5bcd-46bb-b78a-c4d4157af90a)
+![2](https://github.com/user-attachments/assets/45518635-b03d-4f42-99a6-63361cecb3b0)
 
 ## Game Gallery
 - Added a custom high-performance Gallery View with smooth animations and dynamic scaling
