@@ -1,13 +1,13 @@
 **Note: These changes are currently in development and may or may not be merged into Rookie's production version. Linked below is a compiled version with [all of my changes and improvements of the source](https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:RSL-3.0-2).**
 
-# RSL 3.0 BETA
-**Good news! The changes have been merged and RSL 3.0 BETA has been pre-released.**
-**Download available here: https://github.com/VRPirates/rookie/releases**
+**Good news! The changes have been merged and RSL 3.0 BETA has been pre-released: https://github.com/VRPirates/rookie/releases**
 
+# RSL 3.0 BETA
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons, real-time installation progress updates and numerous quality-of-life improvements throughout.
 
-<img width="1256" height="753" alt="cc5e7a818c" src="https://github.com/user-attachments/assets/ebe37ebe-5c04-4d79-a85d-d6d7e53082e8" />
-<img width="1256" height="753" alt="aedf13543b" src="https://github.com/user-attachments/assets/53b8eb9a-2327-4d8e-b4c2-0f78535db077" />
+![1](https://github.com/user-attachments/assets/e17b1b6a-0ca1-4eb4-958c-62368c0af38c)
+
+![2](https://github.com/user-attachments/assets/fe7638c8-5bcd-46bb-b78a-c4d4157af90a)
 
 ## Game Gallery
 - Added a custom high-performance Gallery View with smooth animations and dynamic scaling
@@ -31,6 +31,7 @@ A complete UI redesign, substantial performance improvements and enhanced functi
 - Reduced application size by removing unused assets and optimizing existing assets
 - Implemented automatic Cloudflare DNS fallback to resolve connectivity issues
 - Enhanced ADB connect command timeout handling to prevent startup delays
+- Added custom HTTP proxy support in Rookie settings
 
 ## UI & UX Redesign
 - Complete visual overhaul with new color scheme and refined layout for improved consistency and modernity
@@ -90,7 +91,7 @@ The combination of refined filters and integrated uninstall buttons allows Rooki
 - Fixed corrupted user.config files preventing startup
 
 ## Preview
-TODO
+![3](https://github.com/user-attachments/assets/1ac57569-f234-4262-a064-4d6ee5508966)
 
 ## Release
 **Head over to **https://github.com/VRPirates/rookie/releases** for release.**
