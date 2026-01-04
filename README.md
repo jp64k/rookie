@@ -50,9 +50,9 @@ The combination of refined filters and integrated uninstall buttons allows Rooki
 
 ## Wireless ADB Enhancements
 - Reworked Wireless ADB options to simplify setup and day-to-day use
-- **Manual mode:** The IP address field now automatically prefills the first three octets using the system's local IPv4, reducing typing and input errors
-- New **Automatic mode:** No longer requires a USB connection. Performs a network scan to automatically find the device and connects to it. Includes multi-device selection support
-- Old **Automatic (USB) mode:** Retained the previous automatic USB-based setup as a third connection method
+  - **Manual mode:** The IP address field now automatically prefills the first three octets using the system's local IPv4, reducing typing and input errors
+  - **Automatic mode:** No longer requires a USB connection. Performs a network scan to automatically find the device and connects to it. Includes multi-device selection support
+  - **Automatic (USB) mode:** Keeping the old automatic USB-based setup as third connection method option
 - Updated the ADB button label and messages to provide clearer guidance during connection attempts
 - Increased speed of 'Disable Wireless ADB' feature
 - **Note:** Wireless ADB still requires a one-time USB setup to run the adb tcpip 5555 command
