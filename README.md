@@ -68,6 +68,7 @@ The combination of refined filters and integrated uninstall buttons allows Rooki
 - Replaced the dated download queue ListBox with a custom ModernQueuePanel featuring drag-and-drop reordering, auto-scroll, and cancel buttons for individual entries
 - Implemented persistent download queue with resume support. The queue is automatically saved and restored on startup, with a prompt to resume unfinished downloads if desired
 - Implemented automatic disk and device space validation when adding games to the queue. Space checks account for already-installed packages by calculating the effective size difference needed, and users are prompted when space issues are detected
+- Added duplicate detection to prevent adding the same game to the queue multiple times
 - The UI now displays total queue download size and automatically updates available device space after each installation 
 
 ## Local Blacklist
