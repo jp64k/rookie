@@ -1,6 +1,10 @@
-**Good news! [All changes](https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:RSL-3.0.4) have been merged and RSL 3.0 BETA has been pre-released: https://github.com/VRPirates/rookie/releases**
-
 # RSL 3.0 BETA
+**Good news! Changes have been merged and RSL 3.0 BETA has been pre-released: https://github.com/VRPirates/rookie/releases**
+
+## Changelog
+**Full Changelog: https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:RSL-3.0.4**
+
+
 A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons, real-time installation progress updates and numerous quality-of-life improvements throughout.
 
 ![1](https://github.com/user-attachments/assets/45e6b564-30a5-4025-8fca-27861a26e626)
