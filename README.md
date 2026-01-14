@@ -1,100 +1,33 @@
-# RSL 3.0 BETA
-**Good news! Changes have been merged and RSL 3.0 BETA has been pre-released: https://github.com/VRPirates/rookie/releases**
+# AndroidSideloader
 
-## Changelog
-**Full Changelog: https://github.com/VRPirates/rookie/compare/beta/RSL-2.35...jp64k:rookie:RSL-3.0.4**
+![GitHub last commit](https://img.shields.io/github/last-commit/VRPirates/rookie)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/VRPirates/rookie)
+[![Downloads](https://img.shields.io/github/downloads/VRPirates/rookie/total.svg)](https://github.com/VRPirates/rookie/releases)
+![Issues](https://img.shields.io/github/issues/VRPirates/rookie)
+
+## Disclaimer
+This application might get flagged as malware by some antivirus software; however, both the Sideloader and the Sideloader Launcher are open source.
+
+To run properly, Rookie must be extracted to a non-Protected folder on your drive. We recommend running Rookie from C:\RSL\Rookie
+Do Not use folders such as- C:\Users; C:\Users\Desktop; C:\Program Files; OneDrive; Google Drive; etc...
+Rookie will cleanup its own folder. We are not responsible if you run Rookie from a folder containing other files as Rookie may delete them.
 
 
-A complete UI redesign, substantial performance improvements and enhanced functionality. Highlights include comprehensive startup optimizations, faster game list initialization, instant list filtering, a new gallery view, modernized UI components, integrated uninstall buttons, real-time installation progress updates and numerous quality-of-life improvements throughout.
+## Support
+For any assistance or questions, please utilize our support channels available at [Live Chats](https://vrpirates.wiki/en/general_information/live-chats).
 
-![1](https://github.com/user-attachments/assets/45e6b564-30a5-4025-8fca-27861a26e626)
+## Build Instructions
+This project is developed using C# with WinForms targeting the .NET Framework 4.5.2. To build the project successfully in Visual Studio 2022, follow these steps:
 
-![2](https://github.com/user-attachments/assets/45518635-b03d-4f42-99a6-63361cecb3b0)
+1. Clone this repository to your local machine.
+2. Ensure you have the .NET Framework 4.5.2 installed on your machine.
+3. Open the solution file (`*.sln`) in Visual Studio 2022.
+4. Sometimes the building process can fail due to the packages.config, you should migrate it to PackageReference, do this by right clicking on References in the Solution Explorer, and pressing "Migrate packages.config to PackageReference"
+5. Build the solution by selecting "Build" > "Build Solution" from the Visual Studio menu or pressing `Ctrl + Shift + B`. (or right click the solution in the solution explorer, then press Build)
+6. Run the application.
 
-## Game Gallery
-- Added a custom high-performance Gallery View with smooth animations and dynamic scaling
-- Toggle seamlessly between List and Gallery views, with your preference automatically saved for future launches
-- Switching views scrolls directly to the previously selected game to maintain context
-- Features smooth scrolling, hover animations, status badges, favorite borders and integrated uninstall buttons for installed apps
-- Supports search, filters, sorting and context menu actions ("Add to Favorites", "Remove from Favorites")
-- Optimized LRU image caching ensures smooth performance even on low-end hardware
-- Sorting state is synchronized between List and Gallery views, maintaining consistent sort order when switching between view modes
+## Contributing
+We welcome contributions from the community. If you would like to contribute, please fork the repository, branch from the newest beta branch from this repository, make your changes, and submit a pull request.
 
-## List View Modernization
-- Added custom ModernListView component with modern dark theme and refined behavior
-- Enhanced size and popularity sorting with cleaner size parsing and popularity ranking display
-- Implemented modern scrollbars in both List and Gallery views for visual consistency
-- Added logic to skip 0 MB entries when an MR-Fix version of the same game exists
-
-## Performance Improvements
-- Improved startup performance through overhaul of initialization logic, removal of splash screen, parallelized asynchronous operations, batched version retrieval, optimized metadata extraction and faster directory deletion
-- Instant list filtering via caching and streamlined filter logic (FAVORITES / INSTALLED / UPDATE AVAILABLE / NEWER THAN LIST)
-- Improved search responsiveness with indexed lookups and reduced debounce timers
-- Reduced application size by removing unused assets and optimizing existing assets
-- Implemented automatic Cloudflare DNS fallback to resolve connectivity issues
-- Enhanced ADB connect command timeout handling to prevent startup delays
-- Added custom HTTP proxy support in Rookie settings
-
-## UI & UX Redesign
-- Complete visual overhaul with new color scheme and refined layout for improved consistency and modernity
-- Redesigned left-side navigation bar with smooth animations and clearer device information and option presentation
-- Relocated and refined numerous options (mount device, select device, share app, uninstall app, pull-to-desktop, filters, etc.) for a more logical workflow
-- Fine-tuned styling, sizing, positioning and color consistency across all UI components
-- Implemented modern ToggleSwitch component with animations
-- Redesigned Rookie option menu layout to reduce vertical height and improve readability
-- Added status indicators in the bottom-left corner showing Rookie status, device ID, mirror status and sideloading status at a glance
-- Corrected grammatical and logical issues across text, tooltips and titles throughout the application
-- Added uninstall buttons directly in List and Gallery views for quicker app management
-- Updated the app icon based on the VRP server icon and enabled it in the window title bar
-- Added automatic saving and restoration of window size, position, maximized state and sort order between sessions 
-
-The combination of refined filters and integrated uninstall buttons allows Rookie to function not only as a Sideloader, but also as an efficient device app browser and manager
-
-## Wireless ADB Enhancements
-- Reworked Wireless ADB options to simplify setup and day-to-day use
-  - **Manual mode:** The IP address field now automatically prefills the first three octets using the system's local IPv4, reducing typing and input errors
-  - **Automatic mode:** No longer requires a USB connection. Performs a network scan to automatically find the device and connects to it. Includes multi-device selection support
-  - **Automatic (USB) mode:** Keeping the old automatic USB-based setup as third connection method option
-- Updated the ADB button label and messages to provide clearer guidance during connection attempts
-- Increased speed of 'Disable Wireless ADB' feature
-- **Note:** Wireless ADB still requires a one-time USB setup to run the adb tcpip 5555 command
-
-## Sideloading & Install Flow
-- Added a modern progress bar with improved visuals and clearer status information during installs
-- Real-time progress for app installs, OBB file transfers, and ZIP extraction with floating-point percentages for smooth updates
-- Added ETA estimation for APK installation, OBB copy and file extraction with smoothed calculations for accurate display
-- Improved messages and prompts during and after sideloading to make actions, errors and results easier to understand
-- Added a dialog asking whether to delete game files after installation when enabling sideloading from the sidebar
-
-## Download Queue Enhancements
-- Replaced the dated download queue ListBox with a custom ModernQueuePanel featuring drag-and-drop reordering, auto-scroll, and cancel buttons for individual entries
-- Implemented persistent download queue with resume support. The queue is automatically saved and restored on startup, with a prompt to resume unfinished downloads if desired
-- Implemented automatic disk and device space validation when adding games to the queue. Space checks account for already-installed packages by calculating the effective size difference needed, and users are prompted when space issues are detected
-- Added duplicate detection to prevent adding the same game to the queue multiple times
-- The UI now displays total queue download size and automatically updates available device space after each installation 
-
-## Local Blacklist
-- Added local blacklist support allowing users to permanently suppress donation prompts for specific apps
-- Blacklisted apps are stored in a local blacklist.json and merged locally with the server blacklist
-- This eliminates unwanted prompts immediately without waiting for server-side blacklist updates
-
-## Stability & Bug Fixes
-- Fixed several startup issues that could cause false connection error messages
-- Resolved zombie ADB instances preventing proper startup and reliable connections
-- Fixed initialization behavior when no device is connected so the app continues in a predictable "download-only" state
-- Added automatic device detection to trigger a full UI/data refresh once a device is connected
-- Refactored filter and selection logic to preserve active filters and selected games when refreshing the game list
-- Fixed active filter resetting after uninstalling a game
-- Fixed YouTube trailer playback issues with improved player initialization, WebView2 optimizations and better search accuracy 
-- Added WebView2.dll validation to ensure required runtime dependencies are present
-- Added a retry mechanism for RCLONE initialization to improve robustness
-- Synced sideloading button text to correctly match the current sideloading status
-- Removed update prompt when the local version exceeds the server version
-- Fixed cases where pop-up dialogs would open behind the main window
-- Fixed corrupted user.config files preventing startup
-
-## Preview
-![3](https://github.com/user-attachments/assets/557bec6a-6a9d-406a-924d-2f4ab8e2503f)
-
-## Release
-**Head over to **https://github.com/VRPirates/rookie/releases** for release.**
+## License
+AndroidSideloader is distributed under the GPL license, meaning any forks of it must have their source code made public on the internet. See the [LICENSE](LICENSE) file for details.
